@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4.2</title>
+    <!--Morgan Vidra-->
+    <h1>
+        CYBERSECURITY
+    </h1>
+   
+    <style>
+        * {
+            font-family: Fantasy;
+            text-align: center;
+        }
+
+        body{
+            height: 400px;
+            background-color: grey; 
+            border: 10px;
+            border-color: dodgerblue;
+            border-style: dotted;
+        }
+
+        h1{
+            color: white;   
+            text-align: center;     
+            font-size: 50px;
+        }
+
+        button{
+            padding: 16px 30px;
+            margin: 6px 3px;
+            border: #3333bb;
+            border-radius: 10px;
+            height: 60px;
+            background-color: #3333bb
+            background-image (round);
+            color:maroon;
+            style: transparent
+            width: 150px;
+            text-decoration-color: rgb(6, 6, 84);
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
+    <button id="startButton" onClick="Initial();">Start</button>
+    <button id="stopButton" onClick="halt();" disabled="true">Stop</button>
+
+    <br>
+    <br>
+    <!--Audio file-->
+    <audio controls>
+        <source src="http://soundbible.com/grab.php?id=1317&type=mp3" type="audio/mp3"></source>
+    </audio>
+<!--break-->
+    <br>
+    <br>
+
+    <!-- button to play music-->
+    <button onclick="Science();">Play 🎵 </button>
+    <!-- button to stop music-->
+     <button onclick="stopMusic();">Stop 🛑 </button>
+
+    <script>
+        function Initial(){
+            // prevent start button from being clicked
+            document.getElementById("startButton").disabled = true;
+            // allow stop button to be clicked
+            document.getElementById("stopButton").disabled = false;
+        }
+
+        function halt(){
+            // allow start button action
+            document.getElementById("startButton").disabled = false;
+            // prevent stop button action
+            document.getElementById("stopButton").disabled = true;
+        }
+
+        // add a function to play 'Sci Fi'
+        function Science(){
+            var mySound = new sound("http://soundbible.com/grab.php?id=1317&type=mp3");
+            mySound.play();
+        }
+
+        // create a sound object
+        function sound(src){
+            // create new audio element
+            this.sound = document.createElement("audio");
+            // set audio source
+            this.sound.src = src;
+            this.play = function(){
+                this.sound.play();
+            }
+
+        }
+
+        //function stops playing music
+        function stopMusic(){
+            window.location.reload(); // stop playing music by refreshing page
+        }
+    </script>
+    <p> <!--image-->
+        <img src="cybersecurity.jpg" alt="">
+    </p>
+
+</body>
+</html>
